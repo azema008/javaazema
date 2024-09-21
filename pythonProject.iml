@@ -1,0 +1,86 @@
+def get_zodiac_sign(day, month):
+    if month == 1:
+        if 1 <= day <= 19:
+            return "Козерог"
+        elif 20 <= day <= 31:
+            return "Водолей"
+    elif month == 2:
+        if 1 <= day <= 18:
+            return "Водолей"
+        elif 19 <= day <= 29:
+            return "Рыбы"
+    elif month == 3:
+        if 1 <= day <= 20:
+            return "Рыбы"
+        elif 21 <= day <= 31:
+            return "Овен"
+    elif month == 4:
+        if 1 <= day <= 19:
+            return "Овен"
+        elif 20 <= day <= 30:
+            return "Телец"
+    elif month == 5:
+        if 1 <= day <= 20:
+            return "Телец"
+        elif 21 <= day <= 31:
+            return "Близнецы"
+    elif month == 6:
+        if 1 <= day <= 20:
+            return "Близнецы"
+        elif 21 <= day <= 30:
+            return "Рак"
+    elif month == 7:
+        if 1 <= day <= 22:
+            return "Рак"
+        elif 23 <= day <= 31:
+            return "Лев"
+    elif month == 8:
+        if 1 <= day <= 22:
+            return "Лев"
+        elif 23 <= day <= 31:
+            return "Дева"
+    elif month == 9:
+        if 1 <= day <= 22:
+            return "Дева"
+        elif 23 <= day <= 30:
+            return "Весы"
+    elif month == 10:
+        if 1 <= day <= 22:
+            return "Весы"
+        elif 23 <= day <= 31:
+            return "Скорпион"
+    elif month == 11:
+        if 1 <= day <= 21:
+            return "Скорпион"
+        elif 22 <= day <= 30:
+            return "Стрелец"
+    elif month == 12:
+        if 1 <= day <= 21:
+            return "Стрелец"
+        elif 22 <= day <= 31:
+            return "Козерог"
+    return "Неверная дата"
+
+def is_valid_date(day, month):
+    if month < 1 or month > 12:
+        return False
+    if day < 1:
+        return False
+    days_in_month = [31, 29 if (month == 2 and (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0))) else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return day <= days_in_month[month - 1]
+
+def main():
+    try:
+        day = int(input("Введите день рождения: "))
+        month = int(input("Введите месяц рождения: "))
+
+        if not is_valid_date(day, month):
+            print("Неверная дата. Пожалуйста, введите корректную дату.")
+        else:
+            zodiac_sign = get_zodiac_sign(day, month)
+            print(f"Ваш знак зодиака: {zodiac_sign}")
+    except ValueError:
+        print("Некорректный ввод. Пожалуйста, введите числа.")
+
+if name == "main":
+    main()
